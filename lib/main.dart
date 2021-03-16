@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:sanesp32/blePg.dart';
-import 'package:sanesp32/joystickPg.dart';
-import 'package:sanesp32/settingPg.dart';
+import 'package:sanesp32/pages/blePg.dart';
+import 'package:sanesp32/pages/bleOFF.dart';
+import 'package:sanesp32/pages/joystickPg.dart';
+import 'package:sanesp32/pages/settingPg.dart';
+import 'package:flutter_blue/flutter_blue.dart';
 
-void main() => runApp(MaterialApp(home: BottomNavBar()));
+void main() => runApp(MaterialApp(home: FlutterBlueApp()));
+
+class FlutterBlueApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      color: Colors.lightBlue,
+      home: StreamBuilder<BluetoothState>(
+          stream: FlutterBlue.instance.state,
+          initialData: BluetoothState.unknown,
+          builder: (c, snapshot) {
+            final state = snapshot.data;
+            if (state == BluetoothState.on) {
+              return BottomNavBar();
+            }
+            return BluetoothOffScreen(state: state);
+          }),
+    );
+  }
+}
 
 class BottomNavBar extends StatefulWidget {
   @override
