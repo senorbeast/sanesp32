@@ -1,31 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:sanesp32/pages/blePg.dart';
-import 'package:sanesp32/pages/bleOFF.dart';
 import 'package:sanesp32/pages/joystickPg.dart';
 import 'package:sanesp32/pages/settingPg.dart';
-import 'package:flutter_blue/flutter_blue.dart';
 
-void main() => runApp(MaterialApp(home: FlutterBlueApp()));
-
-class FlutterBlueApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      color: Colors.lightBlue,
-      home: StreamBuilder<BluetoothState>(
-          stream: FlutterBlue.instance.state,
-          initialData: BluetoothState.unknown,
-          builder: (c, snapshot) {
-            final state = snapshot.data;
-            if (state == BluetoothState.on) {
-              return BottomNavBar();
-            }
-            return BluetoothOffScreen(state: state);
-          }),
-    );
-  }
-}
+void main() => runApp(MaterialApp(home: BottomNavBar()));
 
 class BottomNavBar extends StatefulWidget {
   @override
@@ -35,12 +14,12 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int _page = 0;
   final _pageOptions = [
-    BlePage(),
+    MainPage(),
     JSPage(),
     SettingPage()
   ]; // listing of all 3 pages index wise
   final bgcolor = [
-    Colors.blue[400],
+    Colors.white,
     Colors.orange[300],
     Colors.blueGrey[200]
   ]; // changing color as per active index value
