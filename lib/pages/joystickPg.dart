@@ -11,10 +11,10 @@ class _JSPageState extends State<JSPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange[300],
+      backgroundColor: Colors.blueGrey[200],
       appBar: AppBar(
         title: Text('Controller Page'),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.deepPurpleAccent,
         // foregroundColor: Colors.black,
       ),
       body: Container(
@@ -30,6 +30,25 @@ class _JSPageState extends State<JSPage> {
                 style: ElevatedButton.styleFrom(primary: Colors.blueGrey),
               ),
             ),
+            // Positioned(
+            //     bottom: 50,
+            //     right: 10,
+            //     child: Row(
+            //       children: [
+            //         ElevatedButton.icon(
+            //           onPressed: () {},
+            //           icon: Icon(Icons.fiber_manual_record),
+            //           label: Text("Record"),
+            //           style: ElevatedButton.styleFrom(primary: Colors.red),
+            //         ),
+            //         ElevatedButton.icon(
+            //           onPressed: () {},
+            //           icon: Icon(Icons.block),
+            //           label: Text("Stop Record"),
+            //           style: ElevatedButton.styleFrom(primary: Colors.grey),
+            //         ),
+            //       ],
+            //     )),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -41,14 +60,26 @@ class _JSPageState extends State<JSPage> {
                       PadButtonsView(
                         size: 150,
                         buttons: [
-                          PadButtonItem(index: 0, buttonText: 'Right'),
-                          PadButtonItem(index: 1, buttonText: 'Down'),
-                          PadButtonItem(index: 2, buttonText: 'Left'),
-                          PadButtonItem(index: 3, buttonText: 'Up')
+                          PadButtonItem(
+                              index: 0,
+                              buttonText: 'Right',
+                              backgroundColor: Colors.white54),
+                          PadButtonItem(
+                              index: 1,
+                              buttonText: 'Down',
+                              backgroundColor: Colors.white54),
+                          PadButtonItem(
+                              index: 2,
+                              buttonText: 'Left',
+                              backgroundColor: Colors.white54),
+                          PadButtonItem(
+                              index: 3,
+                              buttonText: 'Up',
+                              backgroundColor: Colors.white54)
                         ],
                       ),
                       JoystickView(
-                        backgroundColor: Colors.grey,
+                        backgroundColor: Colors.black26,
                         innerCircleColor: Colors.black38,
                         size: 150,
                         showArrows: false,

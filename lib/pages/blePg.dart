@@ -86,8 +86,10 @@ class _MainPage extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey[200],
       appBar: AppBar(
         title: const Text('Bluetooth Page'),
+        backgroundColor: Colors.indigo[600],
       ),
       body: Container(
         child: ListView(

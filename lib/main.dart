@@ -19,8 +19,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
     SettingPage()
   ]; // listing of all 3 pages index wise
   final bgcolor = [
-    Colors.white,
-    Colors.orange[300],
+    Colors.blueGrey[200],
+    Colors.blueGrey[200],
     Colors.blueGrey[200]
   ]; // changing color as per active index value
   GlobalKey _bottomNavigationKey = GlobalKey();
